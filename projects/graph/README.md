@@ -15,6 +15,13 @@ contains a dictionary mapping vertex labels to edges. For example:
     '2': set(),
     '3': {'0'}
 }
+{
+    '0': {'1', '3'},
+    '1': {'0'},
+    '2': set(),
+    '3': {'0'},
+    '4': {}
+}
 ```
 
 This represents a graph with four vertices and two total (bidirectional) edges.
