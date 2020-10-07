@@ -93,19 +93,19 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        # Create an empty queue and enqueue A PATH TO the starting vertex ID
-		# Create a Set to store visited vertices
-		# While the queue is not empty...
-			# Dequeue the first PATH
-			# Grab the last vertex from the PATH
-			# If that vertex has not been visited...
-				# CHECK IF IT'S THE TARGET
-				  # IF SO, RETURN PATH
-				# Mark it as visited...
-				# Then add A PATH TO its neighbors to the back of the queue
-				  # COPY THE PATH
-				  # APPEND THE NEIGHBOR TO THE BACK
-        all_paths = []
+    # Create an empty queue and enqueue A PATH TO the starting vertex ID
+    # Create a Set to store visited vertices
+    # While the queue is not empty...
+        # Dequeue the first PATH
+        # Grab the last vertex from the PATH
+        # If that vertex has not been visited...
+            # CHECK IF IT'S THE TARGET
+                # IF SO, RETURN PATH
+            # Mark it as visited...
+            # Then add A PATH TO its neighbors to the back of the queue
+                # COPY THE PATH
+                # APPEND THE NEIGHBOR TO THE BACK
+        # all_paths = []
         q = Queue()
         visited = set()
         path = []
@@ -115,21 +115,44 @@ class Graph:
             v, path = q.dequeue()
             if v == destination_vertex:
                 path.append(destination_vertex)
-                all_paths.append(path)
+                return path
+                # all_paths.append(path)
             elif v not in visited:
                 path.append(v)
                 visited.add(v)
-                for neighbor in self.get_neighbors(v):   # neighbors = self.get_neighbors(v)
-                    q.enqueue([neighbor, path])
+                for neighbor in self.get_neighbors(v): 
+                      # neighbors = self.get_neighbors(v)
+                    path_copy = list(path)
+                    q.enqueue([neighbor, path_copy])
         
-        print('all_paths:', all_paths)
-        shortest_path = None
-        shortest_len = len(self.vertices.keys())
-        for path in all_paths:
-            if len(path) <= shortest_len:
-                shortest_len = len(path)
-                shortest_path = path
-        return shortest_path
+        # print('all_paths:', all_paths)
+        # shortest_path = None
+        # shortest_len = len(self.vertices.keys())
+        # for path in all_paths:
+        #     if len(path) <= shortest_len:
+        #         shortest_len = len(path)
+        #         shortest_path = path
+        # return shortest_path
+
+    # q = Queue()
+    # visited = set()
+    # # Init:
+    # q.enqueue([starting_vertex_id])
+
+    # # While the queue isn't empty
+    # while q.size() > 0:
+    #     path = q.dequeue()
+    #     #end_of_path_node = path[-1]
+    #     v = path[-1]
+    #     if v not in visited:
+    #         if v == target_vertex_id:
+    #             return path  # Found it!
+    #         visited.add(v)
+    #         for neighbor in self.get_neighbors(v):
+    #             new_path = path + [neighbor]
+    #             q.enqueue(new_path)
+
+    # return None
 
     def dfs(self, starting_vertex, destination_vertex):
         """
