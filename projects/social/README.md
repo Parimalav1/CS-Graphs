@@ -51,6 +51,9 @@ Note that in this sample, Users 3, 4 and 9 are not in User 1's extended social n
 
 2. If you create 1000 users with an average of 5 random friends each, what percentage of other users will be in a particular user's extended social network? What is the average degree of separation between a user and those in his/her extended network?
 99.5% are in extended social network of a user
+(995/1000) * 100 = 99.5%
+
+Divide the number of people in the extended network by the total number of people in the entire network. Then multiply by 100 to get the percentage.
 Friends at 1 degree = 5
 Friends at 2 degree = 5 x 4 = 20
 Friends at 3 degree = 5 x 4 x 4 = 80
@@ -58,7 +61,6 @@ Friends at 4 degree = 5 x 4 x 4 x 4 = 320
 Friends at 5 degree = 5 x 4 x 4 x 4 x 4 = 1280 (But only 575 are remaining)
 
 Avg distance = ( 1x5 + 2x20 + 3x80 + 4x320 + 5x575) / 1000 = 4.44
-
 
 ## 4. Stretch Goal
 
